@@ -1,0 +1,81 @@
+﻿<Window x:Class="poeFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:poeFinal"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="1000" Height="820">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Canvas Width="1000" Height="820">
+                <Label Content="BUDGET CALCULATOR" HorizontalAlignment="Left" Margin="48,10,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold"/>
+                <Label Content="Provide an estimated cost othe following:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Height="32" Width="355" Canvas.Left="48" Canvas.Top="58"/>
+                <Label Content="Gross Income:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Height="30" Canvas.Left="46" Canvas.Top="95"/>
+                <TextBox x:Name="txtIncome" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="95"/>
+                <Label Content="Tax:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="130" Height="30" Canvas.Left="48" Canvas.Top="130"/>
+                <TextBox x:Name="txtTax" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="130"/>
+                <Label Content="Groceries:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="48" Canvas.Top="165"/>
+                <TextBox x:Name="txtGroceries" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="219" Canvas.Top="169"/>
+                <Label Content="Water &amp; Light:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="48" Canvas.Top="208"/>
+                <TextBox x:Name="txtWater" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="208"/>
+                <Label Content="Travel Cost:" HorizontalAlignment="Left" VerticalAlignment="Center" Width="149" FontSize="18" Height="30" Canvas.Left="377" Canvas.Top="95"/>
+                <TextBox x:Name="txtTravel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="531" Canvas.Top="95"/>
+                <Label Content="Cell &amp; Telephone:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Height="30" Width="149" Canvas.Left="377" Canvas.Top="130"/>
+                <TextBox x:Name="txtTelephone" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Canvas.Left="531" Canvas.Top="130"/>
+                <Label Content="Other expenses:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Height="30" Width="151" Canvas.Left="377" Canvas.Top="169"/>
+                <TextBox x:Name="txtOtherExp" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Canvas.Left="531" Canvas.Top="171"/>
+                <Label Content="Do you rent or buy housing?" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="45" Canvas.Top="260"/>
+                <ComboBox x:Name="cmbOne" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Text="Rent or Buy?" FontSize="18" Canvas.Left="292" Canvas.Top="262" SelectionChanged="cmbOne_SelectionChanged">
+                    <ComboBoxItem ContentStringFormat="Rent" Content="Rent"/>
+                    <ComboBoxItem ContentStringFormat="Homeloan" Content="Homeloan"/>
+                </ComboBox>
+                <Label Content="Rent Amount:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Canvas.Left="450" Canvas.Top="260" Width="120"/>
+                <TextBox x:Name="txtRentAmount" Visibility="Hidden" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="61" Height="30" FontSize="18" Canvas.Left="570" Canvas.Top="260"/>
+                <Label Content="Purchase Price:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="130" FontSize="18" Canvas.Left="48" Canvas.Top="294"/>
+                <TextBox x:Name="txtPrice"  Visibility="Hidden" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="296"/>
+                <Label Content="Total Deposit:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="377" Canvas.Top="291"/>
+                <TextBox x:Name="txtDeposit" Visibility="Hidden" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18" Height="30" Canvas.Left="531" Canvas.Top="298"/>
+                <Label Content="Interest Rate (%):" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Width="151" Canvas.Left="375" Canvas.Top="327"/>
+                <TextBox x:Name="txtInterestRate" Visibility="Hidden" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18" Height="30" Canvas.Left="531" Canvas.Top="330"/>
+                <Label Content="Number of Months (240 - 360):" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="46" Canvas.Top="326"/>
+                <TextBox x:Name="txtNumMonths" Visibility="Hidden" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Height="30" FontSize="18" Canvas.Left="307" Canvas.Top="331"/>
+                <Label x:Name="lblHomeloan" Visibility="Hidden" Content="The Homeloan Repayment is: " HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" Width="660" FontWeight="Bold" Canvas.Left="45" Canvas.Top="366"/>
+                <Label x:Name="lblAvailableMoney" Content="The Available Money is: " HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" Width="662" FontWeight="Bold" Canvas.Left="44" Canvas.Top="400"/>
+                <Label Content="Do you want to buy vehicle?" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Canvas.Left="45" Canvas.Top="439"/>
+                <ComboBox x:Name="cmbTwo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="147" Height="34" FontSize="18" Canvas.Left="292" Canvas.Top="441" SelectionChanged="cmbTwo_SelectionChanged">
+                    <ComboBoxItem ContentStringFormat="Yes" Content="Yes"/>
+                    <ComboBoxItem ContentStringFormat="No" Content="No"/>
+                </ComboBox>
+                <Label Content="Make &amp; Model:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" FontSize="18" Canvas.Left="45" Canvas.Top="473"/>
+                <TextBox x:Name="txtCarMake" Visibility="Hidden" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18" Canvas.Left="219" Canvas.Top="481"/>
+                <Label Content="Purchase Price:" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" FontSize="18" Canvas.Left="48" Canvas.Top="512"/>
+                <TextBox x:Name="txtCarPrice" Visibility="Hidden" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="512"/>
+                <Label Content="Total Deposit:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Width="141" Canvas.Left="377" Canvas.Top="473"/>
+                <TextBox x:Name="txtCarDeposit" Visibility="Hidden" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18" Height="30" Canvas.Left="531" Canvas.Top="477"/>
+                <Label Content="Interest Rate (%):" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Width="141" Canvas.Left="377" Canvas.Top="505"/>
+                <TextBox x:Name="txtCarInterest" Visibility="Hidden" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontSize="18" Canvas.Left="531" Canvas.Top="514"/>
+                <Label Content="Insurance Premium:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="166" Canvas.Left="44" Canvas.Top="546"/>
+                <TextBox x:Name="txtCarPremium" Visibility="Hidden" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="18" Canvas.Left="219" Canvas.Top="548"/>
+                <Label x:Name="lblMonthlyCarCost" Visibility="Hidden" Content="The monthy cost of car purchase is: " HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Canvas.Left="46" Canvas.Top="583" Width="660"/>
+                <Label x:Name="lblTotalExpense" Content="Your Total Expense is: " HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Canvas.Left="48" Canvas.Top="622" Width="658"/>
+                <Label x:Name="lblExpenseOrder" Content="All Expenses (Desc. Order):" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="17" FontWeight="Bold" Canvas.Left="45" Canvas.Top="656" Width="661" Height="38"/>
+                <Button x:Name="btnSubmitForm" Content="Calculate" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Width="180" Height="37" Click="btnSubmitForm_Click" Canvas.Left="48" Canvas.Top="726"/>
+                <Button x:Name="btnReset" Content="Reset" FontSize="20" Width="76" Height="37" Click="btnReset_Click" Canvas.Left="245" Canvas.Top="726" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="lblMessage" Content="" FontSize="17" FontWeight="Bold" Canvas.Left="44" Canvas.Top="694" Width="662" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32"/>
+                <Label Content="SAVE-UP CALCULATOR:" Canvas.Left="695" Canvas.Top="50" FontWeight="Bold" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Label Content="Save-up Reason:" Width="149" FontSize="18" Height="30" Canvas.Left="695" Canvas.Top="89" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Amount to Save:" Width="149" FontSize="18" Height="30" Canvas.Left="695" Canvas.Top="124" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Interest Rate %:" Width="149" FontSize="18" Height="30" Canvas.Left="695" Canvas.Top="165" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="Period (Months):" Width="149" FontSize="18" Height="30" Canvas.Left="695" Canvas.Top="201" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSaveReason" TextWrapping="Wrap" Width="100" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="849" Canvas.Top="95" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtSaveAmount" TextWrapping="Wrap" Width="100" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="849" Canvas.Top="130" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSaveInterest" TextWrapping="Wrap" Width="100" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="849" Canvas.Top="165" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtSavePeriod" TextWrapping="Wrap" Width="100" Height="30" TextChanged="TextBox_TextChanged" FontSize="18" Canvas.Left="849" Canvas.Top="201" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Button x:Name="btnSaveCompute" Content="Compute Monthly Saving" FontSize="20" Width="254" Height="37" Click="btnSaveCompute_Click" Canvas.Left="695" Canvas.Top="238" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtSaveMessage" TextWrapping="Wrap" Width="254" Height="86" TextChanged="TextBox_TextChanged" FontSize="17" Canvas.Left="695" Canvas.Top="280" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+            </Canvas>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
